@@ -1,12 +1,12 @@
 const  html = document.querySelector('html');
-const focoBt = document.querySelector(' .app__card-button--foco');
-const curtoBt = document.querySelector('.app__card-button--curto');
-const longoBt = document.querySelector('.app__card-button--longo');
-const banner = document.querySelector('.another-image') ;
+const focoBt = document.querySelector(' .app__card-button--foco');//pega a classe app__card-button--foco
+const curtoBt = document.querySelector('.app__card-button--curto');//pega a classe app__card-button--curto
+const longoBt = document.querySelector('.app__card-button--longo'); //pega a classe app__card-button--longo
+const banner = document.querySelector('.another-image') ; //pega a classe another-image
 
 
   focoBt.addEventListener('click', () => {
-    html.setAttribute('data-contexto', 'foco');
+    html.setAttribute('data-contexto', 'foco'); // altera ou adiciona um atributo chamado 'data-contexto no elemento html.
     banner.setAttribute('src', '/imagens/foco.png');
 }) 
 
