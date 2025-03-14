@@ -7,9 +7,9 @@ const titulo  = document.querySelector('.app__title'); //pega o titulo da págin
 const botoes  = document.querySelectorAll('.app__card-button');
 const startPauseBt = document.querySelector('#start-pause')
 
-
 const musicaFocoInput = document.querySelector('#alternar-musica');
 const musica = new Audio ('/sons/luna-rise-part-one.mp3');
+
 let intervaloId = null
 let tempoDecorridoEmSegundos = 5
 musica.loop = true
@@ -71,11 +71,14 @@ const contagemRegressiva = () => {
     tempoDecorridoEmSegundos--;
     console.log('Temporizador: ' + tempoDecorridoEmSegundos);
     document.getElementById('temporizador').textContent = tempoDecorridoEmSegundos;
-    clearInterval(intervaloId);
-    intervaloId = setInterval(contagemRegressiva, 1000);
+
+    if (tempoDecorridoEmSegundos <= 0) {
+        clearInterval(intervaloId); // Para o temporizador ao chegar em 0
+        console.log("Tempo esgotado!");
+    }
 };
 
 startPauseBt.addEventListener('click', () => {
-    clearInterval(intervaloId);
+    clearInterval(intervaloId); // Para qualquer contagem anterior
     intervaloId = setInterval(contagemRegressiva, 1000);
 });
