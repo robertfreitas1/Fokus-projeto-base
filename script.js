@@ -68,17 +68,30 @@ function alterarContexto (contexto){
     }
 }
 const contagemRegressiva = () => {
-    tempoDecorridoEmSegundos--;
-    console.log('Temporizador: ' + tempoDecorridoEmSegundos);
-    document.getElementById('temporizador').textContent = tempoDecorridoEmSegundos;
 
     if (tempoDecorridoEmSegundos <= 0) {
-        clearInterval(intervaloId); // Para o temporizador ao chegar em 0
-        console.log("Tempo esgotado!");
-    }
+        zerar ()
+
+       alert('Tempo finalizado ')
+       return }
+    
+    tempoDecorridoEmSegundos -= 1
+    console.log('Tempo finalizado' + contagemRegressiva)
+   
+
 };
 
-startPauseBt.addEventListener('click', () => {
-    clearInterval(intervaloId); // Para qualquer contagem anterior
-    intervaloId = setInterval(contagemRegressiva, 1000);
-});
+startPauseBt.addEventListener('click', iniciarOuPausar) 
+function iniciarOuPausar (){
+    if(intervaloId ){
+        zerar()
+        return
+    }
+        
+    intervaloId = setInterval(contagemRegressiva, 1000)
+}
+
+function zerar (){
+    clearInterval (intervaloId)
+    intervaloId = null
+}
