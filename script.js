@@ -9,6 +9,9 @@ const startPauseBt = document.querySelector('#start-pause')
 
 const musicaFocoInput = document.querySelector('#alternar-musica');
 const musica = new Audio ('/sons/luna-rise-part-one.mp3');
+const beepSound = new Audio("sons/beep.mp3");
+const playSound = new Audio("sons/play.wav");
+const pauseSound = new Audio("sons/pause.mp3");
 
 let intervaloId = null
 let tempoDecorridoEmSegundos = 5
@@ -85,13 +88,21 @@ startPauseBt.addEventListener('click', iniciarOuPausar)
 function iniciarOuPausar (){
     if(intervaloId ){
         zerar()
+        pauseSound.play(); // Toca o som de pausa
         return
     }
         
     intervaloId = setInterval(contagemRegressiva, 1000)
+    playSound.play(); // Toca o som de início
 }
+
+    
+
+
+
 
 function zerar (){
     clearInterval (intervaloId)
     intervaloId = null
+    beepSound.play(); // Toca o som quando chegar a zero
 }
