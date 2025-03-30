@@ -51,7 +51,7 @@ longoBt.addEventListener('click', () =>{
 function alterarContexto (contexto){
     mostrarTempo()
     botoes.forEach(function (contexto){
-        contexto.classList.remove('active')
+        contexto.classList.remove('active')//
     }
     )
     html.setAttribute('data-contexto', contexto)
