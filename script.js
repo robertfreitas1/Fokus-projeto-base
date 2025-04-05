@@ -82,7 +82,7 @@ const contagemRegressiva = () => {
     if (tempoDecorridoEmSegundos <= 0) {
         zerar ()
 
-       alert('Tempo finalizado ')
+       alert('Tempo finalizado!')
        return }
     
     tempoDecorridoEmSegundos -= 1
